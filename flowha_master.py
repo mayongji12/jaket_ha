@@ -21,8 +21,8 @@ class CheckService(object):
     def check(self):
         return os.popen('ps -ef|grep %s|grep -v grep' %self.service).read()
 
-host = '192.168.1.241'
-port = 9999
+host = master
+port = master_port
 addr = (host,port)
 
 class Servers(SRH):
