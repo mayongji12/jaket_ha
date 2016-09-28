@@ -6,8 +6,8 @@ import SocketServer
 from SocketServer import StreamRequestHandler as SRH
 from time import ctime
 import os
-host = '192.168.1.239'
-port = 9999
+host = master
+port = master_port
 addr = (host,port)
 
 class Servers(SRH):
