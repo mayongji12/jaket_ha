@@ -1,9 +1,9 @@
 #!/bin/sh
-mount /dev/vgstore/lvu1 /u1
-mount /dev/vgstore/lvu2 /u2
-oracledir=/u2/oracle/product/11.2.0/dbhome_1/network/admin
+mount /app
+mount /database
+oracledir=$ORACLE_HOME
 cd $oracledir
-cp -rfp listener.ora.242 listener.ora;cp -rfp tnsnames.ora.242 tnsnames.ora
-ifconfig eth0:1 192.168.58.242 netmask 255.255.255.0 up
-ifconfig eth0:2 192.168.58.243 netmask 255.255.255.0 up
+cp -rfp listener.ora.slave listener.ora;cp -rfp tnsnames.ora.slave tnsnames.ora
+ifconfig eth0:1 virip1 netmask ns1 up
+ifconfig eth0:2 virip2 netmask ns2 up
 su - oracle -c "lsnrctl start;dbstart"
